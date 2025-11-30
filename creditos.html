@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Créditos - Interclasse CELC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER + MENU HAMBÚRGUER -->
+  <header class="top-bar">
+    <button
+      class="menu-btn"
+      id="btnMenu"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <h1>INTERCLASSE-CELC</h1>
+
+    <div class="user-area">
+      <!-- botão sair genérico (volta para escolha de perfil) -->
+      <button class="btn btn-outline" onclick="location.href='index.html'">
+        Sair
+      </button>
+    </div>
+  </header>
+
+  <nav class="side-menu" id="sideMenu">
+    <h3>Perfis</h3>
+    <a href="home-jogador.html">Área do Jogador</a>
+    <a href="home-aluno.html">Área do Aluno</a>
+    <a href="home-adm.html">Área do Administrador</a>
+
+    <hr>
+
+    <h3>Campeonato</h3>
+    <a href="jogos.html">Jogos</a>
+    <a href="times.html">Times</a>
+    <a href="artilheiros.html">Artilheiros</a>
+    <a href="tabela.html">Tabela</a>
+    <a href="resultados.html">Resultados</a>
+
+    <hr>
+
+    <h3>Outros</h3>
+    <a href="creditos.html">Créditos</a>
+    <a href="termos.html">Termos de uso</a>
+
+    <hr>
+
+    <!-- “logouts” diretos -->
+    <a href="login-jogador.html">Sair do Jogador</a>
+    <a href="login-aluno.html">Sair do Aluno</a>
+    <a href="login-adm.html">Sair do Administrador</a>
+  </nav>
+
+  <!-- CONTEÚDO DA PÁGINA DE CRÉDITOS -->
+  <main class="page-content creditos">
+    <div class="creditos-card">
+      <h2>Créditos</h2>
+      <p>Aplicação desenvolvida para o Campeonato Interclasse do</p>
+      <p><strong>Colégio Estadual Leôncio Correia (CELC)</strong></p>
+
+      <hr>
+
+      <p><strong>Turma responsável:</strong> 2º DSB</p>
+      <ul class="creditos-lista">
+        <li>Aluno 1</li>
+        <li>Aluno 2</li>
+        <li>Aluno 3</li>
+        <li>Aluno 4</li>
+        <!-- adicione mais nomes aqui -->
+      </ul>
+
+      <hr>
+
+      <p><strong>Funções principais:</strong></p>
+      <p>Design das telas no Figma, implementação em HTML,CSS e Java script, e organização das áreas de Jogador, Aluno e Administrador.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2º DSB
+  </footer>
+
+  <!-- SCRIPT DO MENU -->
+  <script>
+    const btnMenu = document.getElementById('btnMenu');
+    const sideMenu = document.getElementById('sideMenu');
+
+    if (btnMenu && sideMenu) {
+      btnMenu.addEventListener('click', () => {
+        const aberto = sideMenu.classList.toggle('open');
+        btnMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+      });
+
+      sideMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          sideMenu.classList.remove('open');
+          btnMenu.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
